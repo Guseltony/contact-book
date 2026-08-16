@@ -55,8 +55,8 @@ const allContacts = (contacts: ContactLists[]) => {
 
     contactNumber.className = "contact-number";
 
-    contactName.innerHTML = name;
-    contactNumber.innerHTML = phone;
+    contactName.textContent = name;
+    contactNumber.textContent = phone;
     contactPic.src = picture;
 
     list.appendChild(contactPic);
