@@ -106,8 +106,6 @@ function add_contact(name: string, number: string) {
   const newContactIndex =
     contacts.reduce((maxId, contact) => Math.max(maxId, contact.id), 0) + 1;
 
-  console.log(lastContactIndex);
-  console.log(newContactIndex);
 
   if (!handle_duplicates(name, number)) {
     contacts.push({
