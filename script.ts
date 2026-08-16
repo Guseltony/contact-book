@@ -99,8 +99,8 @@ const handle_duplicates = (name: string, number: string) => {
 // fn for adding contact
 
 function add_contact(name: string, number: string) {
-  const lastContactIndex = contacts[contacts.length - 1];
-  const newContactIndex = lastContactIndex.id + 1;
+  const newContactIndex =
+    contacts.reduce((maxId, contact) => Math.max(maxId, contact.id), 0) + 1;
 
   console.log(lastContactIndex);
   console.log(newContactIndex);
