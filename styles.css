@@ -24,8 +24,9 @@ body {
 
 #app-container {
   position: relative;
-  width: 450px;
-  height: 700px;
+  width: min(450px, 100%);
+  height: min(700px, 100dvh);
+  max-height: 100dvh;
   background: #fffde4;
   border-radius: 20px;
   padding: 40px;

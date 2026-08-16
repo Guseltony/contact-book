@@ -1,4 +1,4 @@
-// import { contact_lists } from "./data/contacts.js";
+import { contact_lists } from "./data/contacts.js";
 import { ContactLists } from "./types.js";
 
 const contactsContainer = document.getElementById("contact-lists-container");
@@ -15,7 +15,9 @@ const number_input = document.querySelector(
 
 const savedContacts = localStorage.getItem("contacts");
 
-const localstorage_contacts = savedContacts ? JSON.parse(savedContacts) : [];
+const localstorage_contacts: ContactLists[] = savedContacts
+  ? JSON.parse(savedContacts)
+  : [...contact_lists];
 
 const contacts = [...localstorage_contacts].sort((a, b) => {
   const nameA = a.name.toUpperCase(); // ignore upper and lowercase
@@ -87,6 +89,8 @@ const handle_duplicates = (name: string, number: string) => {
           contactsContainer.innerHTML = "";
         }
         contact.phone = number;
+
+        localStorage.setItem("contacts", JSON.stringify(contacts));
 
         allContacts(contacts);
       }
